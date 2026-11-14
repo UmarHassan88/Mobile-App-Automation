@@ -1,0 +1,11 @@
+
+
+valid_credentials:
+    email: "syedumarhasanzia+test1@gmail.com"
+    password: "Aqary@88"
+
+invalid_credentials:
+    email: "syedumarhasanzia+test12@gmail.com"
+    password: "Aqary@87"
+
+    

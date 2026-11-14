@@ -1,0 +1,10 @@
+appId: com.list.international
+---
+- assertVisible: "Agree"
+- tapOn: "Agree"
+- assertVisible: "33"
+- tapOn: "33"
+- assertVisible: "67"
+- tapOn: "67"
+- assertVisible: "100"
+- tapOn: "100"

@@ -1,0 +1,89 @@
+appId: com.list.international
+
+env:
+    valid_email: "syedumarhasanzia+test1@gmail.com"
+    valid_password: "Aqary@88"
+
+    unregistered_email: "syedumarhasanzia+test12@gmail.com"
+    unregistered_password: "Aqary@87"
+
+    invalid_email: "testgmail.com"
+    weak_password: "aqary"
+---
+- launchApp:
+    clearState: true
+
+
+- runFlow: "./Reusable Tests/Login_Navigation.yaml"
+- assertVisible: "BOTTOM_NAVIGATION_BAR_MORE\nMore"
+- tapOn: "BOTTOM_NAVIGATION_BAR_MORE\nMore"
+- assertVisible: "Login"
+- tapOn: "Login"
+- extendedWaitUntil:
+    visible: "Sign-in options"
+    timeout: 4000
+- back
+
+
+# Unregistered Credentials Scenario
+- tapOn: "info@listint.com"
+- inputText: ${unregistered_email}
+
+- tapOn: "**********"
+- inputText: ${unregistered_password}
+
+- assertVisible: "Login"
+- tapOn: "Login"
+- assertVisible: "Invalid credentials!"
+
+# Invalid Credentials Scenario
+
+- longPressOn: "syedumarhasanzia+test12@gmail.com"
+- tapOn: "Select All"
+- eraseText: 1
+- inputText: ${invalid_email}
+
+- longPressOn: "••••••••"
+- tapOn: "Select All"
+- eraseText: 1
+
+- inputText: ${weak_password}
+- tapOn: "Login"
+- assertVisible: "Email Invalid"
+
+
+# Valid Credentials Scenario
+- longPressOn: "testgmail.com"
+- tapOn: "Select All"
+- eraseText: 1
+- inputText: "${valid_email}"
+
+
+- longPressOn: "•••••"
+- tapOn: "Select All"
+- eraseText: 1
+- inputText: ${valid_password}
+- tapOn: "Login"
+
+- extendedWaitUntil:
+    visible: "Save password to sign in to List Int?"
+    timeout: 3000
+- back
+- assertVisible: "Maybe Later"
+- tapOn: "Maybe Later"
+
+- evalScript: | 
+    console.log("Logged in")
+  
+
+
+
+
+
+
+
+
+
+
+
+

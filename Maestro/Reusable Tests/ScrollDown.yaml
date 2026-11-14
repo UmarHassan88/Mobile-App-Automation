@@ -1,0 +1,7 @@
+appId: com.list.international
+---
+- repeat:
+    times: 3
+    commands: 
+        - swipe:
+            direction: UP

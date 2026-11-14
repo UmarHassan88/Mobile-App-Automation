@@ -1,0 +1,127 @@
+appId: com.list.international
+---
+# - runFlow: "Login_flow.yaml"
+
+# Flow till Home Page
+# - assertVisible: "Saved Listings\n12"
+# - tapOn: "Saved Listings\n12"
+# - assertVisible: "Property\nTab 1 of 8"
+
+# # Halted till the Bug fixes.
+# - assertVisible: "BOTTOM_NAVIGATION_BAR_HOME\nHome"
+# - tapOn: "BOTTOM_NAVIGATION_BAR_HOME\nHome"
+
+- launchApp:
+    clearState: true
+
+- runFlow: "../Reusable Tests/Login_navigation.yaml"
+
+- assertVisible: "BOTTOM_NAVIGATION_BAR_HOME\nHome"
+- tapOn: "BOTTOM_NAVIGATION_BAR_HOME\nHome"
+
+- assertVisible: "Real Estate"
+- tapOn: "Real Estate"
+- tapOn:
+    point: 84%,42%
+- assertVisible: "All List Units"
+- assertVisible: "Unit"
+- tapOn: "Unit"
+- assertVisible: "Buildings\nTab 2 of 5"
+- tapOn: "Buildings\nTab 2 of 5"
+- assertVisible: ".*Show Results.*"
+- tapOn: "Project Listing\nTab 3 of 5"
+- assertVisible: ".*Show Results.*"
+- tapOn: ".*Show Result.*" 
+
+# Applying the Top Filters
+
+- runFlow: "../Reusable Tests/ScrollDown.yaml"
+- assertVisible:
+    point: 3%,11%
+- tapOn:
+    point: 3%,11%
+- assertVisible:
+    point: 0%,3%
+
+# Starting the Traversal of Detail Page
+
+- scroll
+- assertVisible: "Schedule View"
+- assertVisible: "Brochure"
+- scroll
+- assertVisible:
+    text: "Developed By"
+    index: 1
+- assertVisible: "List International AI"
+- scroll
+- assertVisible: "Project Information"
+- scroll
+- assertVisible: ".*Facilities.*"
+- assertVisible: ".*Amenities.*"
+- scroll
+- assertVisible:
+    text: "Social Hub"
+    index: 1
+- scroll
+- assertVisible: ".*All Listings Projects.*"
+- assertVisible: ".*Our Network.*"
+- scroll
+- assertVisible:
+    text: "Media"
+    index: 1
+- assertVisible: "Media Category"
+- scroll
+- assertVisible: ".*Amenities.*"
+- scroll
+- assertVisible:
+    text: "Disclaimer"
+    index: 1
+- scroll
+- assertVisible: ".*Property.*"
+- scroll
+- assertVisible: ".*Similar Projects.*"
+- scroll
+- assertVisible: ".*Add Your Listing.*"
+- scroll
+- assertVisible: ".*Consultation.*"
+- scroll
+- scroll
+- assertVisible: ".*Explore Developer.*"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
